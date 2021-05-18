@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    username: agramar
+    password: agramar0!
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/agramar
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 10
+      pool-name: HIKARI-POOL
+
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MariaDB10Dialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 500
+          batch_versioned_data: true
+          order_inserts: true
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ '*' ]
+
+dgs:
+  graphql:
+    graphiql:
+      enabled: true
+    schema-locations:
+      - classpath*:schema/**/*.graphql*
+graphql:
+  playground:
+    enabled: true
+    page-title: Demo Playgroud
+voyager:
+  enabled: true
