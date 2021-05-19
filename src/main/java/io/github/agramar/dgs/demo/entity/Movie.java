@@ -1,31 +1,30 @@
 package io.github.agramar.dgs.demo.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Builder
+@Data
 @Entity
-public class Movie extends BaseTimeEntity {
+@Table(name = "movie")
+public class Movie extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "TITLE", nullable = false)
+    @Column(nullable = false)
     private String title;
 
-    @Column(name = "PLOT", length = 1000)
+    @Column(length = 1000)
     private String plot;
 
-    @Column(name = "RELEASE_DATE")
+    @Column
     private LocalDate releaseDate;
 
 }

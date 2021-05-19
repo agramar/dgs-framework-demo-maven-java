@@ -1,1 +1,24 @@
+type Query {
+    movies(title: String): [Movie]
+}
+
+type Movie {
+    id: Int!
+    title: String!
+    plot: String
+    releaseDate: Date
+    regUser: User
+    regDate: DateTime!
+    modUser: User
+    modDate: DateTime!
+}
+
+type User {
+    id: Int!
+    accountName: String!
+    userName: String!
+}
+
 scalar DateTime
+scalar Date
+directive @skipcodegen on FIELD_DEFINITION

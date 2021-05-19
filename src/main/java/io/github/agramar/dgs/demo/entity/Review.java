@@ -5,32 +5,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Review extends BaseTimeEntity {
+public class Review extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="MOVIE_ID")
+    @JoinColumn(name="movie_id")
     private Movie movie;
 
-    @OneToOne
-    @JoinColumn(name = "USER_ID")
-    private User user;
-
-    @Column(name = "TITLE", nullable = false)
+    @Column(nullable = false)
     private String title;
 
-    @Column(name = "SCORE", nullable = false)
-    private BigDecimal score;
-
-    @Column(name = "CONTENT")
+    @Column
     private String content;
 
 }

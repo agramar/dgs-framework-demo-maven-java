@@ -10,10 +10,15 @@ import graphql.schema.idl.RuntimeWiring;
  * We can wire a scalar from this library by adding the scalar to the RuntimeWiring.
  */
 @DgsComponent
-public class DateTimeScalar {
+public class Scalars {
 
     @DgsRuntimeWiring
-    public RuntimeWiring.Builder addScalar(RuntimeWiring.Builder builder) {
+    public RuntimeWiring.Builder addDateTimeScalar(RuntimeWiring.Builder builder) {
         return builder.scalar(ExtendedScalars.DateTime);
+    }
+
+    @DgsRuntimeWiring
+    public RuntimeWiring.Builder addDateScalar(RuntimeWiring.Builder builder) {
+        return builder.scalar(ExtendedScalars.Date);
     }
 }
