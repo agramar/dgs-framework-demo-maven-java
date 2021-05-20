@@ -1,24 +1,27 @@
 package io.github.agramar.dgs.demo.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@Builder
+@Data
 @Entity
+@Table(name = "USER")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(name = "ACCOUNT_NAME", length = 100, nullable = false)
     private String accountName;
 
-    @Column(length = 100, nullable = false)
+    @Column(name = "USER_NAME", length = 100, nullable = false)
     private String userName;
 
 }

@@ -3,7 +3,7 @@ type Query {
 }
 
 type Movie {
-    id: Int!
+    id: Long!
     title: String!
     plot: String
     releaseDate: Date
@@ -11,14 +11,26 @@ type Movie {
     regDate: DateTime!
     modUser: User
     modDate: DateTime!
+    reviews: [Review]
 }
 
 type User {
-    id: Int!
+    id: Long!
     accountName: String!
     userName: String!
 }
 
+type Review {
+    id: Long!
+    title: String!
+    content: String
+    regUser: User
+    regDate: DateTime!
+    modUser: User
+    modDate: DateTime!
+}
+
 scalar DateTime
 scalar Date
+scalar Long
 directive @skipcodegen on FIELD_DEFINITION

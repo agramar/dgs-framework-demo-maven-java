@@ -57,12 +57,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>2.4.3</version>
-        </dependency>
-
 
         <dependency>
             <groupId>com.netflix.graphql.dgs</groupId>
@@ -101,53 +95,52 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.4.5</version>
-            </plugin>
-            <plugin>
-                <groupId>io.github.deweyjose</groupId>
-                <artifactId>graphqlcodegen-maven-plugin</artifactId>
-                <version>1.10</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <schemaPaths>
-                        <param>src/main/resources/schema/schema.graphqls</param>
-                    </schemaPaths>
-                    <typeMapping>
-                        <Date>java.time.LocalDate</Date>
-<!--                        <DateTime>java.time.LocalDateTime</DateTime>-->
-                    </typeMapping>
-                    <language>java</language>
-                    <generateBoxedTypes>true</generateBoxedTypes>
-                    <packageName>io.github.agramar.dgs.demo.graphql.generated</packageName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.build.directory}/generated-sources</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <version>2.4.5</version>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>io.github.deweyjose</groupId>-->
+<!--                <artifactId>graphqlcodegen-maven-plugin</artifactId>-->
+<!--                <version>1.10</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <schemaPaths>-->
+<!--                        <param>src/main/resources/schema/schema.graphqls</param>-->
+<!--                    </schemaPaths>-->
+<!--                    <typeMapping>-->
+<!--                        <Date>java.time.LocalDate</Date>-->
+<!--                    </typeMapping>-->
+<!--                    <language>java</language>-->
+<!--                    <generateBoxedTypes>false</generateBoxedTypes>-->
+<!--                    <packageName>io.github.agramar.dgs.demo.graphql.generated</packageName>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>build-helper-maven-plugin</artifactId>-->
+<!--                <version>3.2.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>add-source</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <sources>-->
+<!--                                <source>${project.build.directory}/generated-sources</source>-->
+<!--                            </sources>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

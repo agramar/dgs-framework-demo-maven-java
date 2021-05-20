@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Transactional
 @DataJpaTest
-@DisplayName("Movie Repository 테스트")
+@DisplayName("영화 레파지토리 테스트")
 class MovieRepositoryTest {
 
     @Autowired

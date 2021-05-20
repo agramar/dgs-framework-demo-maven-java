@@ -10,7 +10,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Data
@@ -19,8 +18,8 @@ import java.time.OffsetDateTime;
 public abstract class BaseEntity {
 
     @CreatedBy
-    @OneToOne
-    @JoinColumn(name = "reg_user_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "REG_USER_ID")
     private User regUser;
 
     @CreatedDate
@@ -29,8 +28,8 @@ public abstract class BaseEntity {
     private OffsetDateTime regDate;
 
     @LastModifiedBy
-    @OneToOne
-    @JoinColumn(name = "mod_user_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "MOD_USER_ID")
     private User modUser;
 
     @UpdateTimestamp

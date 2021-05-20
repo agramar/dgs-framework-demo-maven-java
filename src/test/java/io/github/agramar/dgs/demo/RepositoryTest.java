@@ -1,4 +1,4 @@
-package io.github.agramar.dgs.demo.repository;
+package io.github.agramar.dgs.demo;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

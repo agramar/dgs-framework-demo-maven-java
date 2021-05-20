@@ -21,4 +21,9 @@ public class Scalars {
     public RuntimeWiring.Builder addDateScalar(RuntimeWiring.Builder builder) {
         return builder.scalar(ExtendedScalars.Date);
     }
+
+    @DgsRuntimeWiring
+    public RuntimeWiring.Builder addLongScalar(RuntimeWiring.Builder builder) {
+        return builder.scalar(ExtendedScalars.GraphQLLong);
+    }
 }
